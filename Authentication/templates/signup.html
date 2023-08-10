@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    body, html{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .block {
+        width: 350px;
+        height: 430px;
+        background-color: #f098dc;
+        padding: 30px;
+        box-sizing: border-box;
+        border-radius: 12px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    .signup-form {
+    display: flex;
+    flex-direction: column;
+    }
+  
+    .signup-form h1{
+        display: flex;
+        margin-bottom: 30px;
+        margin-top: 10px;
+        align-items: center;
+    }
+    .signup-form input {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    .signup-form .button-container {
+    display: flex;
+    justify-content: space-between;
+    }
+  
+    .signup-form button {
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    margin: 30px 2px;
+    padding: 10px 20px;
+    cursor: pointer;
+      }
+    
+   
+</style>
+
+<div class="block">
+    <form class="signup-form" method="POST" action="">
+      {% csrf_token %}
+        <h1>SignUp Here</h1>
+        <input type="text" name="username" id="username" placeholder="Name" required/>
+        <input type="email" name="email" id="email" placeholder="Email" required/>
+        <input type="password" name="password1" id="password1" placeholder="Password" required/>
+        <input type="password" name="password2" id="password2" placeholder="Confirm Password" required/>
+        <div class="button-container">
+          <button type="submit" value="success">Sign Up</button>
+        </div>
+        <p><a href="{% url 'login' %}">I have already account</a></p>
+    </form>
+</div>
+
+
+
+{% endblock %}
